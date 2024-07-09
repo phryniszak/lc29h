@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="RTK solution with LC29H modules" />
+<meta name="keywords" content="GPS, RTK, LC29H">
+<meta name="author" content="Pawel Hryniszak">
+
+
+
+<link rel="icon" href="./assets/logo-fav-CT3B4b1I.svg">
+<title>LC29H</title>
+
+  <script type="module" crossorigin src="./assets/index-Dy10xerC.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Br2Wc93L.css">
+</head>
+
+<body>
+    <div style="display: flex;justify-content: space-around;">
+        <div style="font-family: system-ui;"> Loading...</div>
+    </div>
+
+    <div hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+
+    <symbol id="list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+    </symbol>
+    <symbol id="search" viewBox="0 0 16 16">
+        <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+    </symbol>
+</svg>
+        <header id="header-el" class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+
+    <a class="navbar-brand d-inline-flex col-md-3 col-lg-2 me-0 px-3 fs-6 text-white " href="#">
+        
+        LC29H
+    </a>
+
+    <div class="d-flex text-white">
+        <div id="ackGPS" class="mx-1 mx-md-3 px-1 px-md-3 bg-secondary rounded-1">GPS</div>
+        <div id="ackCON" class="mx-1 mx-md-3 px-1 px-md-3 bg-secondary rounded-1">CON</div>
+        <div id="ackEXT" class="mx-1 mx-md-3 px-1 px-md-3 bg-secondary rounded-1">-----</div>
+    </div>
+
+    <ul class="navbar-nav flex-row d-md-none">
+        
+        <li class="nav-item text-nowrap">
+            <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar-el">
+                <svg class="bi">
+                    <use xlink:href="#list" />
+                </svg>
+            </button>
+        </li>
+    </ul>
+
+    <div id="navbarSearch" class="navbar-search w-100 collapse">
+        <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search">
+    </div>
+</header>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="sidebar border-start border-end col-md-3 col-lg-2 p-0 bg-body-tertiary">
+    <div id="sidebar-el" class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">
+                LC29H
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebar-el"></button>
+        </div>
+        <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2 active" data-bs-toggle="tab"
+                        data-bs-target="#pane-gps-connection">
+                        <svg class="bi">
+                            <use xlink:href="#house-fill" />
+                        </svg>
+                        GPS connection
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" data-bs-toggle="tab"
+                        data-bs-target="#pane-p2p-connection">
+                        <svg class="bi">
+                            <use xlink:href="#file-earmark" />
+                        </svg>
+                        P2P connection
+                    </button>
+                </li>
+
+                <h6
+                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                    <span>Logs</span>
+                    <a class="link-secondary" href="#">
+                        <svg class="bi">
+                            <use xlink:href="#plus-circle" />
+                        </svg>
+                    </a>
+                </h6>
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-log">
+                        <svg class="bi">
+                            <use xlink:href="#people" />
+                        </svg>
+                        APP log
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-nmea">
+                        <svg class="bi">
+                            <use xlink:href="#cart" />
+                        </svg>
+                        NMEA log
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-rtcm">
+                        <svg class="bi">
+                            <use xlink:href="#graph-up" />
+                        </svg>
+                        RTCM log
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-file">
+                        <svg class="bi">
+                            <use xlink:href="#graph-up" />
+                        </svg>
+                        File log
+                    </button>
+                </li>
+
+                <hr class="my-3">
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-about">
+                        <svg class="bi">
+                            <use xlink:href="#graph-up" />
+                        </svg>
+                        About
+                    </button>
+                </li>
+
+            </ul>
+
+            
+
+        </div>
+    </div>
+</div>
+
+                <!-- columns matching sidebar values -->
+                <main id="main-el" class="col-md-9 ms-sm-auto col-lg-10 px-md-4 overflow-y-auto">
+                    <div class="tab-content" id="myTabContent">
+                        <div id="pane-gps-connection" class="tab-pane fade show active" role="tabpanel" tabindex="0">
+
+    <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+        <div class="d-grid gap-2">
+
+            <div class="row g-3">
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="options-outlined" id="inWebUSB" autocomplete="off"
+                        checked>
+                    <label class="btn btn-outline-primary w-100" for="inWebUSB">Connect USB</label>
+                </div>
+                <div class="col-6">
+                    <input type="radio" class="btn-check" name="options-outlined" id="inWebSerial" autocomplete="off">
+                    <label class="btn btn-outline-primary w-100" for="inWebSerial">Connect Serial</label>
+                </div>
+            </div>
+
+            <button id="btnCloseDevice" disabled class="btn btn-secondary mb-4" type="button">Disconnect</button>
+
+            <hr>
+
+            <button id="btnConfigDevice" class="btn btn-secondary my-4" type="button" data-bs-toggle="modal"
+                data-bs-target="#confirmModal" disabled>Configure GPS</button>
+
+            <div id="divBaseConfig" hidden>
+                <div class="d-flex my-3">
+                    <label class="col-7 d-flex justify-content-center align-items-center">Base survey time</label>
+                    <select id="selSurveyTime" class="form-select col">
+                        <option data-seconds="300" selected>5 min</option>
+                        <option data-seconds="600">10 min</option>
+                        <option data-seconds="1800">30 min</option>
+                        <option data-seconds="3600">1 hr</option>
+                        <option data-seconds="7200">2 hr</option>
+                        <option data-seconds="14400">4 hr</option>
+                        <option data-seconds="21600">6 hr</option>
+                    </select>
+                </div>
+
+                <div class="d-flex my-3">
+                    <label class="col-7 d-flex justify-content-center align-items-center">Base survey accuracy</label>
+                    <select id="selSurveyAccuracy" class="form-select col">
+                        <option data-accuracy="0.3">0.3 m</option>
+                        <option data-accuracy="0.5">0.5 m</option>
+                        <option data-accuracy="1">1 m</option>
+                        <option data-accuracy="2.5">2.5 m</option>
+                        <option data-accuracy="5">5 m</option>
+                        <option data-accuracy="10">10 m</option>
+                        <option data-accuracy="30" selected>30 m</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    
+        <div class="modal fade" id="confirmModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="confirmModalLabel">---</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        Write configuration to module?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button id="btnConfirmModalSubmit" type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+                        <div id="pane-p2p-connection" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div id="pane-p2p-connection-base" hidden>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2">BASE</h1>
+        </div>
+
+        <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+            <div class="d-grid gap-2">
+
+                <label for="inputID" class="form-label">ID</label>
+                <input id="inputID" class="mb-3 form-control form-control-lg text-center" type="text" placeholder="----"
+                    disabled readonly>
+
+                <button id="btnBaseCopyLink" class="btn btn-outline-dark" type="button">Copy link</button>
+                <button id="btnBaseCopyID" class="btn btn-outline-dark" type="button">Copy ID</button>
+
+                <div class="text-center">
+                    <canvas id="elServerQR"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="pane-p2p-connection-rover" hidden>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2">ROVER</h1>
+        </div>
+
+        <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+            <div class="d-grid gap-2">
+
+                <div class="mb-3">
+                    <label for="inputClientID" class="form-label">Base ID</label>
+                    <input type="text" id="inputClientID" class="text-center form-control form-control-lg">
+                </div>
+
+                <button id="btnClientUpdateServerID" disabled class="btn btn-outline-dark" type="button">Update base
+                    ID</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+                        <div id="pane-log" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">APP LOG</h1>
+    </div>
+
+    <div class="pane-log-div mt-3"></div>
+</div>
+                        <div id="pane-nmea" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">NMEA LOG</h1>
+    </div>
+
+    <div class="json-top"></div>
+</div>
+                        <div id="pane-rtcm" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">RTCM LOG</h1>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tbody>
+                <thead>
+                    <tr>
+                        <th scope="col">Message Type</th>
+                        <th scope="col">Length</th>
+                        <th scope="col">Source</th>
+                    </tr>
+                </thead>
+                <tr>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+                        <div id="pane-file" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+        <div class="d-grid gap-2">
+            <h1>LOG FILE</h1>
+
+            
+
+            <div class="row g-3">
+
+                <div class="col">
+                    <button id="btnFile" class="btn btn-outline-secondary w-100" type="button">Save LOG as...</button>
+                </div>
+                <div class="col-5">
+                    <select id="selFileType" class="form-select">
+                        <option selected>gpx</option>
+                        <option>nmea</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col">
+                <button id="btnDelete" class="btn btn-outline-secondary w-100 mb-3" type="button">Delete LOG
+                    files</button>
+                    
+            </div>
+
+        </div>
+    </div>
+
+</div>
+                        <div id="pane-about" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+        <div class="d-grid gap-2">
+            <h2>RTK solution for LC29H(DA) LC29H(BS)</h2>
+            <h4>Pawel Hryniszak</h4>
+            <h4>July 2024</h4>
+
+            <a class="rounded" href="https://github.com/phryniszak/lc29h">github</a>
+
+    </div>
+
+</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q32FNW4W1D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-Q32FNW4W1D');
+    </script>-->
+
+</body>
+
+</html>
