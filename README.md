@@ -20,7 +20,7 @@ Simple RTK base/rover setup using LC29H modules from Waveshare.
 
 [LC29H(BS) GPS/RTK HAT as RTK base station](https://www.waveshare.com/lc29h-gps-hat.htm?sku=25280)
 
-and some browsers as a way to send P2P RTCM correction from base to rover.
+and web browser as a way to send P2P RTCM correction from base to rover.
 
 ## How to use it?
 
