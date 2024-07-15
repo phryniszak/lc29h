@@ -64,7 +64,24 @@
         globalThis._my_.device.write(str);
         await Utils.later(50);
 
-        // 4. Save it
+        // 4. Set PAIR_RTCM_SET_OUTPUT_MODE to RTCM-3 MSM7
+        // Whereas MSM6 and MSM7 are high precision messages, containing the same fields
+        // as MSM4 and MSM5 representatively, but with a higher resolution.
+        str = this.#parser.encode({
+            sentenceId: "AIR432",
+            rw: "W",
+            mode: 1,
+        });
+        globalThis._my_.device.write(str);
+        await Utils.later(50);
+
+        str = this.#parser.encode({
+            sentenceId: "AIR433",
+        });
+        globalThis._my_.device.write(str);
+        await Utils.later(50);
+
+        // 5. Save it
         str = this.#parser.encode({
             sentenceId: "QTMSAVEPAR",
         });

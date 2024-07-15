@@ -4,7 +4,7 @@ Live here: <https://phryniszak.github.io/lc29h/>
 
 ## Warning
 
-During configuration, settings are modified and saved by QTMSAVEPAR.
+During modules RTK configuration, settings are modified and saved by QTMSAVEPAR.
 
 [What is modified?](src/controller.js)
 
@@ -61,3 +61,4 @@ NMEA and GPX output to file is supported.
 - It can only be used on browsers that support the [Web Serial API](https://caniuse.com/web-serial) or [USB API](https://caniuse.com/mdn-api_usb).
 - The website offers two ways of connecting to the module: by USB or serial connection. The Waveshare module can be detected as USB or a serial port which blocks USB, which is most likely the case on a PC.
 - Communication between modules is realized by WebRTC.
+- Rover module may require about 1 minute to receive positioning signals after powering on, while base station modules may require more time, dependant of values set during configuration.
