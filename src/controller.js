@@ -89,8 +89,8 @@ sendBaseConfig() {
 }
 
 /**
-*
-*/
+ *
+ */
 sendRoverConfig() {
 
     // $PQTMCFGRCVRMODE,W,<1 = Rover>*<Checksum><CR><LF>
@@ -99,10 +99,13 @@ sendRoverConfig() {
     await Utils.later(50);
 
     // GGA, GLL, GSA, GSV, RMC and VTG messages are output by default.
-    // VTG
+    // disable VTG
     // Course Over Ground & Ground Speed. The actual course and speed relative to the ground.
-    // can be disabled - PAIR_COMMON_SET_NMEA_OUTPUT_RATE
     globalThis._my_.device.write("$PAIR062,5,0*3B\r\n");
+    await Utils.later(50);
+    // disable RMC
+    // Recommended Minimum Specific GNSS Data
+    globalThis._my_.device.write("$PAIR062,4,0*3A\r\n");
     await Utils.later(50);
 
     // PQTMCFGMSGRATE
@@ -120,6 +123,27 @@ sendRoverConfig() {
         sentenceId: "QTMCFGMSGRATE",
         rw: "R",
         msgName: "PQTMDOP",
+    });
+    globalThis._my_.device.write(str);
+    await Utils.later(50);
+
+    // QTMCFGNMEADP - Sets/gets the decimal places of NMEA messages
+    str = this.#parser.encode({
+        sentenceId: "QTMCFGNMEADP",
+        rw: "W",
+        UTC_DP: 1, // number of decimal places for UTC seconds 
+        POS_DP: 8, // number of decimal places for latitude and longitude
+        ALT_DP: 3, // number of decimal places for altitude and geoidal separation
+        DOP_DP: 2, // number of decimal places for DOP
+        SPD_DP: 1, // number of decimal places for speed
+        COG_DP: 1  // number of decimal places for COG
+    });
+    globalThis._my_.device.write(str);
+    await Utils.later(50);
+
+    str = this.#parser.encode({
+        sentenceId: "QTMCFGNMEADP",
+        rw: "R",
     });
     globalThis._my_.device.write(str);
     await Utils.later(50);
