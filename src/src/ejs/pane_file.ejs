@@ -1,0 +1,54 @@
+<div id="pane-file" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div class="col-lg-6 col-xxl-4 mx-auto">
+        <div class="d-grid pt-3">
+            <h1>LOG FILE</h1>
+
+            <div id="filesList" class="list-group list-group-flush mb-3">
+                <button type="button" data-bs-toggle="list"
+                    class="list-group-item list-group-item-action active"></button>
+                <button type="button" data-bs-toggle="list" class="list-group-item list-group-item-action"></button>
+                <button type="button" data-bs-toggle="list" class="list-group-item list-group-item-action"></button>
+                <button type="button" data-bs-toggle="list" class="list-group-item list-group-item-action"></button>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col">
+                    <button id="btnSaveGPX" class="btn btn-outline-secondary w-100" type="button">Save as GPX</button>
+                </div>
+                <div class="col">
+                    <button id="btnSaveNMEA" class="btn btn-outline-secondary w-100" type="button">Save as NMEA</button>
+                </div>
+            </div>
+
+            <button id="btnDelete" class="btn btn-outline-secondary w-100 mb-3" data-bs-toggle="modal"
+                data-bs-target="#confirmFileDelete" type="button">Delete LOG
+                files</button>
+
+            <button id="btnStartNewFile" class="btn btn-outline-secondary w-100" type="button">Start new file</button>
+
+        </div>
+    </div>
+
+    <%#<!-- Modal -->%>
+        <div class="modal fade" id="confirmFileDelete" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Delete files</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        Delete all saved files?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button id="btnConfirmFileDelete" type="button" class="btn btn-primary"
+                            data-bs-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>

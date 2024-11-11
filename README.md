@@ -6,7 +6,7 @@ Live here: <https://phryniszak.github.io/lc29h/>
 
 During modules RTK configuration, settings are modified and saved by QTMSAVEPAR.
 
-[What is modified?](src/controller.js)
+[What is modified?](src/src/js/controller.js)
 
 To revert to default parameters, use the PQTMRESTOREPAR command.
 
@@ -32,7 +32,7 @@ and web browser as a way to send P2P RTCM correction from base to rover.
 <img src="doc/pc_base_connection.png" alt="base connection" width="400"/>
 
 The connection is confirmed by the green GPS icon at the top of the website.
-f modules are connected for the first time, they should be configured by pressing the 'Configure GPS' button ([What is modified?](src/controller.js)).
+f modules are connected for the first time, they should be configured by pressing the 'Configure GPS' button ([What is modified?](src/src/js/controller.js)).
 
 The SUR green icon confirms the completed survey status.
 
@@ -62,3 +62,4 @@ NMEA and GPX output to file is supported.
 - The website offers two ways of connecting to the module: by USB or serial connection. The Waveshare module can be detected as USB or a serial port which blocks USB, which is most likely the case on a PC.
 - Communication between modules is realized by WebRTC.
 - Rover module may require about 1 minute to receive positioning signals after powering on, while base station modules may require more time, dependant of values set during configuration.
+- some parts of code stolen/borrowed from many places, eg NMEA pareser (https://github.com/101100/nmea-simple)

@@ -1,0 +1,46 @@
+<div id="pane-p2p-connection" class="tab-pane fade" role="tabpanel" tabindex="0">
+
+    <div id="pane-p2p-connection-base" hidden>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2">BASE</h1>
+        </div>
+
+        <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+            <div class="d-grid gap-2">
+
+                <label for="inputID" class="form-label">ID</label>
+                <input id="inputID" class="mb-3 form-control form-control-lg text-center" type="text" placeholder="----"
+                    disabled readonly>
+
+                <button id="btnBaseCopyLink" class="btn btn-outline-dark" type="button">Copy link</button>
+                <button id="btnBaseCopyID" class="btn btn-outline-dark" type="button">Copy ID</button>
+
+                <div class="text-center">
+                    <canvas id="elServerQR"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="pane-p2p-connection-rover" hidden>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2">ROVER</h1>
+        </div>
+
+        <div class="col-lg-6 col-xxl-4 my-3 mx-auto">
+            <div class="d-grid gap-2">
+
+                <div class="mb-3">
+                    <label for="inputClientID" class="form-label">Base ID</label>
+                    <input type="text" id="inputClientID" class="text-center form-control form-control-lg">
+                </div>
+
+                <button id="btnClientUpdateServerID" disabled class="btn btn-outline-dark" type="button">Update base
+                    ID</button>
+
+            </div>
+        </div>
+    </div>
+
+</div>

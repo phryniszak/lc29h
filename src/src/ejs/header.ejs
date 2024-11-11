@@ -1,0 +1,36 @@
+<header id="header-el" class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
+
+    <a class="navbar-brand d-inline-flex col-md-3 col-lg-2 me-0 px-3 fs-6 text-white " href="#">
+        <%#<!-- <img src="./assets/logo-fav.svg" alt="Logo" width="30" height="24" class="bi d-inline-block align-text-top"> -->%>
+        <%= locals.title %>
+    </a>
+
+    <div class="d-flex text-white">
+        <div id="ackGPS" class="mx-1 mx-md-3 px-1 px-md-3 bg-secondary rounded-1">GPS</div>
+        <div id="ackCON" class="mx-1 mx-md-3 px-1 px-md-3 bg-secondary rounded-1">CON</div>
+        <div id="ackEXT" class="mx-1 mx-md-3 px-1 px-md-3 bg-secondary rounded-1">-----</div>
+    </div>
+
+    <ul class="navbar-nav flex-row d-md-none">
+        <%#<!-- <li class="nav-item text-nowrap">
+            <button class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSearch">
+                <svg class="bi">
+                    <use xlink:href="#search" />
+                </svg>
+            </button>
+        </li> -->%>
+        <li class="nav-item text-nowrap">
+            <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar-el">
+                <svg class="bi">
+                    <use xlink:href="#list" />
+                </svg>
+            </button>
+        </li>
+    </ul>
+
+    <div id="navbarSearch" class="navbar-search w-100 collapse">
+        <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search">
+    </div>
+</header>

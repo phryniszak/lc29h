@@ -1,0 +1,149 @@
+<div class="sidebar border-start border-end col-md-3 col-lg-2 p-0 bg-body-tertiary">
+    <div id="sidebar-el" class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">
+                <%= locals.title %>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebar-el"></button>
+        </div>
+        <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2 active" data-bs-toggle="tab"
+                        data-bs-target="#pane-gps-connection">
+                        <svg class="bi">
+                            <use xlink:href="#house-fill" />
+                        </svg>
+                        GPS connection
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" data-bs-toggle="tab"
+                        data-bs-target="#pane-p2p-connection">
+                        <svg class="bi">
+                            <use xlink:href="#file-earmark" />
+                        </svg>
+                        P2P connection
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" data-bs-toggle="tab"
+                        data-bs-target="#pane-wpt">
+                        <svg class="bi">
+                            <use xlink:href="#file-earmark" />
+                        </svg>
+                        Add waypoint
+                    </button>
+                </li>
+
+                <h6
+                    class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                    <span>Logs</span>
+                    <a class="link-secondary" href="#">
+                        <svg class="bi">
+                            <use xlink:href="#plus-circle" />
+                        </svg>
+                    </a>
+                </h6>
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-log">
+                        <svg class="bi">
+                            <use xlink:href="#people" />
+                        </svg>
+                        APP log
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-nmea">
+                        <svg class="bi">
+                            <use xlink:href="#cart" />
+                        </svg>
+                        NMEA log
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-rtcm">
+                        <svg class="bi">
+                            <use xlink:href="#graph-up" />
+                        </svg>
+                        RTCM log
+                    </button>
+                </li>
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-file">
+                        <svg class="bi">
+                            <use xlink:href="#graph-up" />
+                        </svg>
+                        File log
+                    </button>
+                </li>
+
+                <hr class="my-3">
+
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" href="#" data-bs-toggle="tab"
+                        data-bs-target="#pane-about">
+                        <svg class="bi">
+                            <use xlink:href="#graph-up" />
+                        </svg>
+                        About
+                    </button>
+                </li>
+
+            </ul>
+
+            <%#<!-- <h6
+                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-body-secondary text-uppercase">
+                <span>Saved reports</span>
+                <a class="link-secondary" href="#">
+                    <svg class="bi">
+                        <use xlink:href="#plus-circle" />
+                    </svg>
+                </a>
+                </h6>
+
+                <ul class="nav flex-column mb-auto">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                            <svg class="bi">
+                                <use xlink:href="#file-earmark-text" />
+                            </svg>
+                            Current month
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                            <svg class="bi">
+                                <use xlink:href="#file-earmark-text" />
+                            </svg>
+                            Last quarter
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                            <svg class="bi">
+                                <use xlink:href="#file-earmark-text" />
+                            </svg>
+                            Social engagement
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2" href="#">
+                            <svg class="bi">
+                                <use xlink:href="#file-earmark-text" />
+                            </svg>
+                            Year-end sale
+                        </a>
+                    </li>
+                </ul> -->%>
+
+        </div>
+    </div>
+</div>
